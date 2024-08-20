@@ -12,21 +12,28 @@ const prisma = require("./prismaClient");
 // create list item, use book.title, book.author, etc
 
 // add a user
-
 async function addUser(user, hash) {
     try {
+        const existingUser = await prisma.users.findUnique({
+            where: { username: user }
+        });
+
+        if (existingUser) {
+            throw new Error('Username already taken');
+        }
+
         await prisma.users.create({
             data: {
                 username: user,
                 password: hash
             }
-        })
+        });
     } catch (error) {
-        console.log("error in addUser function")
+        // Re-throw the error for the controller to handle
+        throw error;
     }
-    
-    
-} 
+}
+
 
 module.exports = {
     addUser
