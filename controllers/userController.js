@@ -1,7 +1,7 @@
 
-async function newUserSignup(req, res) {
+async function registerNewUser(req, res) {
    // some validation stuff
-    res.render('signup');
+    res.render('register');
 }
 
 // async function userDashboard(req, res) {
@@ -9,4 +9,4 @@ async function newUserSignup(req, res) {
 //      res.render('dashboard', { USER DATA });
 //  }
  
-module.exports = { newUserSignup };
+module.exports = { registerNewUser };
