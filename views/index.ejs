@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head', { title: 'Login' }) %>
+
+    <body>
+        <h1>User login:</h1>
+        <form action="/user/signup" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </form>
+        <p>No account? <a href="./signup">Signup here.</a></p>
+    </body>
+
+</html>
