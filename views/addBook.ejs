@@ -3,15 +3,15 @@
 <%- include('./partials/head', { title: 'Add new book' }) %>
 
     <body>
-        <h1>User login:</h1>
-        <form action="/books/new" method="POST">
+        <h1>Add a book:</h1>
+        <form action="/book/new" method="POST">
             <label for="title">Book title:</label>
             <input type="text" id="title" name="title" required>
             <label for="author">Author:</label>
             <input type="text" id="author" name="author">
             <button type="submit">Add book</button>
         </form>
-        <p>No account? <a href="./signup">Signup here.</a></p>
+
     </body>
 
 </html>
