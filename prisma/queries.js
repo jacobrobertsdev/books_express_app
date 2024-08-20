@@ -2,6 +2,8 @@
 // You will need to pass a username for the greeting (hello, user)
 // You will need to get the books array of that users books to display them
 
+const prisma = require("./prismaClient");
+
 // get a user by id
 
 // get all books belonging to a user
@@ -9,3 +11,23 @@
 // i.e. for(book of books){
 // create list item, use book.title, book.author, etc
 
+// add a user
+
+async function addUser(user, hash) {
+    try {
+        await prisma.users.create({
+            data: {
+                username: user,
+                password: hash
+            }
+        })
+    } catch (error) {
+        console.log("error in addUser function")
+    }
+    
+    
+} 
+
+module.exports = {
+    addUser
+}

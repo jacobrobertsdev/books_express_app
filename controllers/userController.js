@@ -1,9 +1,35 @@
+const prisma = require("../prisma/prismaClient");
+const bcrypt = require('bcrypt');
 
+const db = require('../prisma/queries')
 // Dont forget to add validation and sanitization with express-validator
 
-async function registerNewUser(req, res) {
-   // some validation stuff
+async function getNewUser(req, res) {
     res.render('register');
+}
+
+async function postNewUser(req, res) {
+    try {
+        // Extract user details from the request
+        const { username, password } = req.body;
+        
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+        
+        // Add the new user to the database
+        await db.addUser(username, hashedPassword);
+        
+        // Redirect to the home page on success
+        res.redirect('/');
+    } catch (error) {
+        // Log the error and respond with an appropriate message
+        console.error('Error creating new user:', error);
+        res.status(500).send('Internal Server Error');
+    }
+
+    const users = await prisma.users.findMany();
+    console.log(users)
+    
 }
 
 async function newBook(req, res) {
@@ -23,6 +49,7 @@ async function newBook(req, res) {
 //  }
  
 module.exports = {
-    registerNewUser,
+    getNewUser,
+    postNewUser,
     newBook
 };

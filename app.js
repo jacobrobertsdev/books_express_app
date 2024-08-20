@@ -4,8 +4,10 @@ require('dotenv').config()
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
+
 const indexRouter = require('./routes/indexRouter');
 const userRouter = require('./routes/userRouter');
+
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 
