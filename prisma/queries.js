@@ -4,12 +4,18 @@
 
 const prisma = require("./prismaClient");
 
-// get a user by id
+// get a user by username for authentication via passport-config.js
+async function getUserByUsername(user) {
 
-// get all books belonging to a user
-// this will be an array you will loop over to render book cards
-// i.e. for(book of books){
-// create list item, use book.title, book.author, etc
+    return await prisma.users.findUnique({ where: { username: user } });
+
+}
+
+async function getUserByID(id) {
+    return await prisma.users.findUnique({ where: { id } });
+}
+
+
 
 // add a user
 async function addUser(user, hash) {
@@ -36,5 +42,7 @@ async function addUser(user, hash) {
 
 
 module.exports = {
-    addUser
+    addUser,
+    getUserByUsername,
+    getUserByID
 }

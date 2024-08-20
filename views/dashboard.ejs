@@ -4,9 +4,11 @@
 
     <body>
         <header>
-            <nav>
-                // add links for signout and adding a book
-            </nav>
+            <form action="/user/logout" method="POST">
+                <button type="submit">Log out</button>
+            </form>
+
+            <h1>Hello <%= username %>! Welcome to your dashboard.</h1>
         </header>
         <p>User Dashboard where users can view all of their books.</p>
 

@@ -5,20 +5,15 @@
     <body>
         <h1>Register:</h1>
 
-        <% if (errorMessage) { %>
-            <p style="color: red;">
-                <%= errorMessage %>
-            </p>
-            <% } %>
-                <form action="/user/register" method="POST">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required placeholder="Create a username"
-                        minlength="3" maxlength="20">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" minlength="8" maxlength="20" name="password" required
-                        placeholder="Create a password">
-                    <button type="submit">Register</button>
-                </form>
+        <form action="/user/register" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required placeholder="Create a username" minlength="3"
+                maxlength="20">
+            <label for="password">Password:</label>
+            <input type="password" id="password" minlength="8" maxlength="20" name="password" required
+                placeholder="Create a password">
+            <button type="submit">Register</button>
+        </form>
     </body>
 
 </html>
