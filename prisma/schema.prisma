@@ -13,19 +13,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Users {
+model users {
   id       String  @id @default(uuid())
   username String  @unique
   password String
-  books    Books[] // Relation field for user-owned books
+  books    books[] // Relation field for user-owned books
 }
 
-model Books {
+model books {
   id      String  @id @default(uuid())
   title   String
   author  String
   genre   String
   rating  String?
-  addedBy Users   @relation(fields: [userId], references: [id]) // Relation to the user
+  addedBy users   @relation(fields: [userId], references: [id]) // Relation to the user
   userId  String // Foreign key to the user
 }

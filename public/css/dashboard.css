@@ -62,7 +62,6 @@ ul {
 
 
 li {
-    border-left: 5px black;
     width: 18rem;
     flex-direction: column;
     justify-content: center;
