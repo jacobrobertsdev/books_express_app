@@ -11,39 +11,62 @@
 
 <body>
     <header>
-        <a href="/user/book/new">Add new book</a>
+        <h2>
+            <%= username %>'s Dashboard
+        </h2>
+        <a href="/user/book/new" class="addBook">Add book</a>
         <form action="/user/logout" method="POST">
             <button type="submit" class="logout">Log out</button>
         </form>
     </header>
     <main>
-        <h1>Welcome back, <%= username %>!</h1>
-        <p> You have added <%= books.length %> books: </p>
 
-        <% if (books.length> 0) {%>
-            <section class="books">
-                <ul>
-                    <% for(let book of books) {%>
-                        <li>
-                            <h5>
-                                <%= book.title %>
-                            </h5>
-                            <p>
-                                <%= book.author %>
-                            </p>
-                            <p>
-                                <%= book.genre %>
-                            </p>
-                            <a href="/user/book/edit/<%= book.id %>">Edit book</a>
-                            <form action="/user/book/delete/<%= book.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="delete-btn" data-id="<%= book.id %>">Delete book</button>
-                            </form>
+        <% if (books.length==1) {%>
+            <p> You have added <%= books.length %> book: </p>
+            <% } else if (!books.length){%>
+                <p> Click 'Add book' to start adding books to your dashboard! </p>
+                <% } else {%>
+                    <p> You have added <%= books.length %> books: </p>
+                    <% } %>
 
-                        </li>
-                        <% }} %>
+                        <% if (books.length> 0) {%>
+                            <section class="books">
+                                <ul>
+                                    <% for(let book of books) {%>
+                                        <li>
 
-                </ul>
-            </section>
+                                            <h4>
+                                                <%= book.title %>
+                                            </h4>
+                                            <p>
+                                                Author: <%= book.author %>
+                                            </p>
+                                            <p>
+                                                Genre: <%= book.genre %>
+                                            </p>
+
+                                            <% if (book.rating !==null){ %>
+                                                <p>
+                                                    Rating: <%= book.rating %> / 10
+                                                </p>
+                                                <% } %>
+
+
+
+                                                    <a href="/user/book/edit/<%= book.id %>" class="edit">Edit</a>
+                                                    <form action="/user/book/delete/<%= book.id %>?_method=DELETE"
+                                                        method="POST">
+                                                        <button type="submit" class="delete-btn"
+                                                            data-id="<%= book.id %>">Delete</button>
+                                                    </form>
+
+
+
+                                        </li>
+                                        <% }} %>
+
+                                </ul>
+                            </section>
     </main>
 </body>
 

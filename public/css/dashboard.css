@@ -2,23 +2,38 @@
 header {
     position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
-    height: 5rem;
+    padding: 4rem 0 2rem 0;
+    color: #162106;
 }
 
 .logout {
+    background-color: black;
+    color: white;
     position: absolute;
-    top: 15%;
-    right: 3%;
-    padding: .25rem;
+    top: 1.2rem;
+    right: 1.2rem;
+    padding: .3rem .8rem;
     cursor: pointer;
+    border: 2px solid black;
+    border-radius: 99999px;
+    font-size: .8rem;
+    
 }
 
 .addBook {
     position: absolute;
-    top: 15%;
-    left: 3%;
-    padding: .25rem;
+    top: 1.2rem;
+    left: 1.2rem;
+    padding: .3rem .8rem;
+    background-color: none;
+    color: black;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 99999px;
+    font-size: .8rem;
 }
 
 main {
@@ -27,7 +42,13 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin:0 auto ;
+    margin: 0 auto ;
+    text-align: center;
+    color: #162106;
+}
+
+.addBook:hover {
+    background-color: rgb(247, 247, 247);
 }
 
 ul {
@@ -39,15 +60,55 @@ ul {
     margin: 1rem auto;
 }
 
+
 li {
-    width: 12rem;
-    display: flex;
+    border-left: 5px black;
+    width: 18rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: .2rem;
+    gap: .4rem;
+    position: relative;
+    display: flex;
     margin: .6rem;
-    padding: 1.4rem;
-    border-radius: 15px;
-    box-shadow: 2px 2px 3px 0px rgb(179, 179, 179);
+    padding:1rem;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 0px rgb(204, 204, 204);
+    font-size: .8rem;
+    word-wrap: break-word ;
+}
+
+
+.edit {
+    background-color: rgb(234, 234, 234);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: .2rem .5rem;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .7rem;
+    border: 1px solid rgb(234, 234, 234);
+}
+
+.edit:hover, .delete-btn:hover {
+    background-color: rgb(247, 247, 247);
+}
+
+.delete-btn {
+    background-color: rgb(234, 234, 234);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: .2rem .5rem;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: .7rem;
+    border: 1px solid rgb(234, 234, 234)
 }

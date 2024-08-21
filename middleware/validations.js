@@ -9,7 +9,7 @@ const bookForm = [
 
     body('author')
         .notEmpty().withMessage('Author is required')
-        .matches(/^[a-zA-Z\s]+$/).withMessage('Author can contain letters and spaces only')
+        .matches(/^[a-zA-Z\s.]+$/).withMessage('Author can contain letters, spaces, and periods only')
         .trim()
         .escape(),
 

@@ -57,7 +57,7 @@ const postNewBook = [
         }
 
         try {
-            const { title, author, genre } = req.body;
+            const { title, author, genre, rating } = req.body;
             const userId = req.user.id; // Assuming you have user data in req.user
             // Create new book entry
             await prisma.books.create({
@@ -65,6 +65,7 @@ const postNewBook = [
                     title,
                     author,
                     genre,
+                    rating,
                     userId, // Associate the book with the logged-in user
                 },
             });
@@ -81,7 +82,7 @@ const postNewBook = [
 async function getEditBook(req, res) {
     try {
         const book = await db.getBookByID(req.params.bookID);
-        res.render('editBook', { id: book.id, title: book.title, author: book.author, genre: book.genre });
+        res.render('editBook', { id: book.id, title: book.title, author: book.author, genre: book.genre, rating: book.rating });
     } catch (error) {
         res.status(500).send(error.message);
     }
@@ -101,7 +102,8 @@ const postEditBook = [
         const data = {
             title: req.body.title,
             author: req.body.author,
-            genre: req.body.genre
+            genre: req.body.genre,
+            rating: req.body.rating
         }
 
         try {
