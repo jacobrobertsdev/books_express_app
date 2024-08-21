@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const app = express();
 
+// Import methodOvveride (for delete request)
 const methodOverride = require('method-override');
 
 

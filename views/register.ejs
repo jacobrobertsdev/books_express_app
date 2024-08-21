@@ -24,12 +24,15 @@
             <input type="password" id="password" minlength="8" maxlength="20" name="password" required
                 placeholder="Create a password">
             <button type="submit">Register</button>
+            <% if (typeof errorMessage !=='undefined' ) { %>
+                <p>
+                    <%= errorMessage%>
+                </p>
+                <% }; %>
+
+                    <%- include("partials/errors.ejs") %>
         </form>
-        <% if (typeof errorMessage !=='undefined' ) { %>
-            <p>
-                <%= errorMessage%>
-            </p>
-            <% }; %>
+
     </section>
 
 </body>
