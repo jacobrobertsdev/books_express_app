@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head', { title: 'User Signup' }) %>
 
-    <body>
-        <h1>Register:</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/global.css">
+
+    <title>Register</title>
+</head>
+
+<body>
+
+    <section>
+        <h3>Register:</h3>
 
         <form action="/user/register" method="POST">
+
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required placeholder="Create a username" minlength="3"
                 maxlength="20">
@@ -14,6 +25,13 @@
                 placeholder="Create a password">
             <button type="submit">Register</button>
         </form>
-    </body>
+        <% if (typeof errorMessage !=='undefined' ) { %>
+            <p>
+                <%= errorMessage%>
+            </p>
+            <% }; %>
+    </section>
+
+</body>
 
 </html>

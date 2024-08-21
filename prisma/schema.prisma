@@ -21,11 +21,10 @@ model Users {
 }
 
 model Books {
-  id      String  @id @default(uuid())
+  id      String @id @default(uuid())
   title   String
-  author  String? // Optional field
-  genre   String? // Optional field
-  notes   String? // Optional field for personal notes or thoughts
-  addedBy Users   @relation(fields: [userId], references: [id]) // Relation to the user
+  author  String
+  genre   String
+  addedBy Users  @relation(fields: [userId], references: [id]) // Relation to the user
   userId  String // Foreign key to the user
 }

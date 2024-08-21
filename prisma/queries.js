@@ -25,7 +25,7 @@ async function addUser(user, hash) {
         });
 
         if (existingUser) {
-            throw new Error('Username already taken');
+            throw new Error('That username is already taken!');
         }
 
         await prisma.users.create({
@@ -40,9 +40,53 @@ async function addUser(user, hash) {
     }
 }
 
+// Get a book by ID
+async function getBookByID(id) {
+    try {
+        const book = await prisma.books.findUnique({
+            where: { id: id }
+        });
+        return book;
+    } catch (error) {
+        // Handle errors, e.g., log them or rethrow
+        console.error("Error retrieving book by ID:", error);
+        throw error;
+    }
+}
+
+async function updateBook(id, updateData) {
+    try {
+        await prisma.books.update({
+            where: { id: id },
+            data: updateData
+        });
+
+    } catch (error) {
+        // Handle errors, e.g., log them or rethrow
+        console.error("Error updating book:", error);
+        throw error;
+    }
+}
+
+async function deleteBookByID(id) {
+    try {
+        await prisma.books.delete({
+            where: { id: id }
+        })
+
+    } catch (error) {
+        // Handle errors, e.g., log them or rethrow
+        console.error("Error deleting book:", error);
+        throw error;
+    }
+}
+
 
 module.exports = {
     addUser,
     getUserByUsername,
-    getUserByID
+    getUserByID,
+    getBookByID,
+    updateBook,
+    deleteBookByID,
 }

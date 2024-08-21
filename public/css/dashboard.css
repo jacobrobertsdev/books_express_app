@@ -1,0 +1,53 @@
+
+header {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 5rem;
+}
+
+.logout {
+    position: absolute;
+    top: 15%;
+    right: 3%;
+    padding: .25rem;
+    cursor: pointer;
+}
+
+.addBook {
+    position: absolute;
+    top: 15%;
+    left: 3%;
+    padding: .25rem;
+}
+
+main {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto ;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+}
+
+li {
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .2rem;
+    margin: .6rem;
+    padding: 1.4rem;
+    border-radius: 15px;
+    box-shadow: 2px 2px 3px 0px rgb(179, 179, 179);
+}

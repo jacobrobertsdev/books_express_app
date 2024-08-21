@@ -1,16 +1,20 @@
 const prisma = require("../prisma/prismaClient");
 const bcrypt = require('bcrypt');
 const db = require('../prisma/queries')
+const { body, validationResult } = require('express-validator');
 // Dont forget to add validation and sanitization with express-validator
 
+// Render the new user registration view
 function getNewUser(req, res) {
     res.render('register');
 }
 
+// Render login view
 function getLogin(req, res) {
     res.render('login');
 }
 
+// Use registration POST request to create new user calling the appropriate model function (addUser())
 async function postNewUser(req, res) {
     try {
         // Extract user details from the request
@@ -19,20 +23,87 @@ async function postNewUser(req, res) {
         const hashedPassword = await bcrypt.hash(password, 10);
         // Add the new user to the database
         await db.addUser(username, hashedPassword);
-        // Redirect to the home page on success
+        // Redirect to the login page on success
         res.redirect('/user/login');
 
     } catch (error) {
-        // Log the error
-        res.render('register', { errorMessage: error });
+        // Pass error to register view
+        console.log(error);
+        res.render('register', { errorMessage: error.message });
     }
 }
 
-async function newBook(req, res) {
-    // add a book to DB
-    // where req.params.userID == user.id
-    // some validation stuff
+async function getNewBook(req, res) {
     res.render('addBook');
+}
+
+
+
+// Add validation and sanitization middleware
+const validateBook = [
+    body('title').notEmpty().withMessage('Title is required').trim().escape(),
+    body('author').optional().trim().escape(),
+    body('genre').optional().trim().escape(),
+];
+
+async function postNewBook(req, res) {
+    // Validate request body
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        // If validation errors exist, render the form again with error messages
+        return res.render('addBook', { errors: errors.array() });
+    }
+
+    try {
+        const { title, author, genre } = req.body;
+        const userId = req.user.id; // Assuming you have user data in req.user
+
+        // Create new book entry
+        await prisma.books.create({
+            data: {
+                title,
+                author,
+                genre,
+                userId, // Associate the book with the logged-in user
+            },
+        });
+
+        // Redirect to a success page or user's dashboard
+        res.redirect(`/user/dashboard/${userId}`);
+    } catch (error) {
+        console.error('Error adding new book:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+async function getEditBook(req, res) {
+    try {
+        const book = await db.getBookByID(req.params.bookID);
+        res.render('editBook', { id: book.id, title: book.title, author: book.author, genre: book.genre });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
+
+
+async function postEditBook(req, res) {
+    const id = req.params.bookID;
+    const data = {
+        title: req.body.title,
+        author: req.body.author,
+        genre: req.body.genre
+    }
+
+    try {
+        await db.updateBook(id, data);
+        const userID = req.user.id;
+        res.redirect(`/user/dashboard/${userID}`);
+
+    } catch (error) {
+        res.status(500).send('Error from post book edit controller');
+    }
+
 }
 
 // LOGIN success redirect
@@ -66,11 +137,28 @@ async function userDashboard(req, res) {
     }
 }
 
+async function deleteBook(req, res) {
+    const id = req.params.bookID;
+    try {
+        await db.deleteBookByID(id);
+        const userID = req.user.id;
+        res.redirect(`/user/dashboard/${userID}`);
+    } catch (error) {
+        res.status(500).send('Error deleting data.');
+
+    }
+
+}
+
 module.exports = {
     getNewUser,
     postNewUser,
-    newBook,
+    getNewBook,
+    postNewBook,
     getDashboard,
     userDashboard,
-    getLogin
+    getLogin,
+    getEditBook,
+    postEditBook,
+    deleteBook
 };

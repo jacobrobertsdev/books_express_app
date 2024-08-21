@@ -1,6 +1,6 @@
 
 async function getIndex(req, res) {
-    res.render('index');
+    res.redirect('/user/login');
 }
 
 module.exports = { getIndex };

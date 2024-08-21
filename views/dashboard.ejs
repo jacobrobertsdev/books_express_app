@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head', { title: 'Dashboard' }) %>
 
-    <body>
-        <header>
-            <form action="/user/logout" method="POST">
-                <button type="submit">Log out</button>
-            </form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <title>Dashboard</title>
+</head>
 
-            <h1>Hello <%= username %>! Welcome to your dashboard.</h1>
-        </header>
-        <p>User Dashboard where users can view all of their books.</p>
+<body>
+    <header>
+        <a href="/user/book/new">Add new book</a>
+        <form action="/user/logout" method="POST">
+            <button type="submit" class="logout">Log out</button>
+        </form>
+    </header>
+    <main>
+        <h1>Welcome back, <%= username %>!</h1>
+        <p> You have added <%= books.length %> books: </p>
 
-        // add a list here for rendering books
-    </body>
+        <% if (books.length> 0) {%>
+            <section class="books">
+                <ul>
+                    <% for(let book of books) {%>
+                        <li>
+                            <h5>
+                                <%= book.title %>
+                            </h5>
+                            <p>
+                                <%= book.author %>
+                            </p>
+                            <p>
+                                <%= book.genre %>
+                            </p>
+                            <a href="/user/book/edit/<%= book.id %>">Edit book</a>
+                            <form action="/user/book/delete/<%= book.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="delete-btn" data-id="<%= book.id %>">Delete book</button>
+                            </form>
+
+                        </li>
+                        <% }} %>
+
+                </ul>
+            </section>
+    </main>
+</body>
 
 </html>
