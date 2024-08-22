@@ -10,19 +10,20 @@ h3 {
 }
 
 form {
-    border: 2px solid black;
+    border: 2px solid #363a94;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 18rem;
+    width: 20rem;
     padding: 2rem;
-    
+
 }
+
 
 input {
     border: 2px solid rgb(154, 154, 154);
-    padding: .3rem .5rem;
+    padding: .3rem .7rem;
     margin: .2rem 0 .5rem 0;
     border-radius: 1rem;
 }
@@ -31,20 +32,28 @@ button {
     margin: .5rem 0;
     padding: .3rem;
     cursor: pointer;
-    background: none;
-    border: 2px solid black;
+    background-color: #363a94;
+    color: white;
     border-radius: 999999px;
 }
 
 button:hover {
-    background-color: rgb(247, 247, 247);
+    background: none;
+    border: 2px solid #363a94;
+    color: #363a94;
 }
 
 a {
+    text-align: center;
     text-decoration: none;
     cursor: pointer;
+    color: #363a94;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+form p {
+    align-self: center;
 }

@@ -20,8 +20,9 @@ A full-stack application that allows users to manage a collection of books with 
 
 🔗 **Live site:** [here](add link)
 
-<img src="/public/images/Screen Shot 2024-08-21 at 2.00.59 PM.png" width="600px" alt="Screenshot">
-<img src="/public/images/Screen Shot 2024-08-21 at 1.49.09 PM.png" width="600px" alt="Screenshot">
+<img src="/public/images/Screen Shot 2024-08-21 at 8.12.21 PM.png" width="600px" alt="Screenshot">
+<img src="/public/images/Screen Shot 2024-08-21 at 8.15.53 PM.png" width="600px" alt="Screenshot">
+<img src="/public/images/Screen Shot 2024-08-21 at 8.13.28 PM.png" width="600px" alt="Screenshot">
 
 ## Author
 

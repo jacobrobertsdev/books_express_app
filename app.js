@@ -43,7 +43,6 @@ app.use(session({
 // Initialize Passport
 const initializePassport = require('./passport-config');
 initializePassport(passport);
-app.use(passport.initialize());
 app.use(passport.session());
 
 // Use routers

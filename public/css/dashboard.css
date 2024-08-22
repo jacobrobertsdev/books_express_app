@@ -1,4 +1,3 @@
-
 header {
     position: relative;
     display: flex;
@@ -10,17 +9,23 @@ header {
 }
 
 .logout {
-    background-color: black;
+    background-color: #dd1d50;
     color: white;
     position: absolute;
     top: 1.2rem;
     right: 1.2rem;
     padding: .3rem .8rem;
     cursor: pointer;
-    border: 2px solid black;
+    border: 2px solid #dd1d50;
     border-radius: 99999px;
     font-size: .8rem;
-    
+    font-weight: 500;
+
+}
+
+.logout:hover {
+    background: none;
+    color: #dd1d50;
 }
 
 .addBook {
@@ -29,11 +34,17 @@ header {
     left: 1.2rem;
     padding: .3rem .8rem;
     background-color: none;
-    color: black;
+    color: #363a94;
     text-decoration: none;
-    border: 2px solid black;
+    border: 2px solid #363a94;
     border-radius: 99999px;
     font-size: .8rem;
+    font-weight: 500;
+
+}
+
+.addBook:hover {
+    background-color: #f1eeff;
 }
 
 main {
@@ -42,14 +53,12 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 auto ;
+    margin: 0 auto;
     text-align: center;
     color: #162106;
 }
 
-.addBook:hover {
-    background-color: rgb(247, 247, 247);
-}
+
 
 ul {
     list-style-type: none;
@@ -62,6 +71,7 @@ ul {
 
 
 li {
+    background-color: #ffffff;
     width: 18rem;
     flex-direction: column;
     justify-content: center;
@@ -70,11 +80,29 @@ li {
     position: relative;
     display: flex;
     margin: .6rem;
-    padding:1rem;
+    padding: 1rem;
     border-radius: 12px;
-    box-shadow: 2px 2px 6px 0px rgb(204, 204, 204);
+    box-shadow: 2px 2px 15px 0px rgb(204, 204, 204);
     font-size: .8rem;
-    word-wrap: break-word ;
+    word-wrap: break-word;
+
+}
+
+li:hover {
+    box-shadow: none;
+    transition: box-shadow .5s ease;
+}
+
+li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 10px;
+    width: 100%;
+    background-color: #363a94;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 
@@ -90,11 +118,7 @@ li {
     text-decoration: none;
     cursor: pointer;
     font-size: .7rem;
-    border: 1px solid rgb(234, 234, 234);
-}
 
-.edit:hover, .delete-btn:hover {
-    background-color: rgb(247, 247, 247);
 }
 
 .delete-btn {
@@ -109,5 +133,10 @@ li {
     border: none;
     cursor: pointer;
     font-size: .7rem;
-    border: 1px solid rgb(234, 234, 234)
+
+}
+
+.edit:hover,
+.delete-btn:hover {
+    background-color: #f1eeff;
 }
