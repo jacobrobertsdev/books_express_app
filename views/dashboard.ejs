@@ -14,6 +14,7 @@
         <h2>
             <%= username %>'s Dashboard
         </h2>
+        <input type="text" class="search" placeholder="Search books by title" />
         <a href="/user/book/new" class="addBook">Add book</a>
         <form action="/user/logout" method="POST">
             <button type="submit" class="logout">Log out</button>
@@ -22,18 +23,18 @@
     <main>
 
         <% if (books.length==1) {%>
-            <p> You have added <%= books.length %> book: </p>
+            <p> You have read <%= books.length %> book: </p>
             <% } else if (!books.length){%>
                 <p> Click 'Add book' to start adding books to your dashboard! </p>
                 <% } else {%>
-                    <p> You have added <%= books.length %> books: </p>
+                    <p> You have read <%= books.length %> books: </p>
                     <% } %>
 
                         <% if (books.length> 0) {%>
                             <section class="books">
                                 <ul>
                                     <% for(let book of books) {%>
-                                        <li>
+                                        <li class="book" data-title="<%= book.title %>">
 
                                             <h4>
                                                 <%= book.title %>
@@ -68,6 +69,23 @@
                                 </ul>
                             </section>
     </main>
+
+    <script>
+        document.querySelector('.search').addEventListener('keyup', function () {
+            var searchValue = this.value.toLowerCase();
+            var books = document.querySelectorAll('.book');
+
+            for (let book of books) {
+                var title = book.getAttribute('data-title');
+                if (!title.toLowerCase().includes(searchValue)) {
+                    book.style.display = 'none';
+                } else {
+                    book.style.display = '';
+                }
+            }
+        });
+
+    </script>
 </body>
 
 </html>

@@ -1,11 +1,23 @@
 header {
     position: relative;
     display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     justify-content: center;
     align-items: center;
     width: 100vw;
     padding: 4rem 0 2rem 0;
     color: #162106;
+}
+
+.search {
+    width: 18rem;
+    border: 2px solid rgb(154, 154, 154);
+    padding: .3rem .7rem;
+    margin: .2rem 0 .5rem 0;
+    border-radius: 1rem;
+    max-width: 30rem;
+    margin-top: 1rem;
 }
 
 .logout {

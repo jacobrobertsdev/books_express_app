@@ -4,9 +4,9 @@ A full-stack application that allows users to manage a collection of books with 
 
 ## Features
 
-- **CRUD Operations:** Create, Read, Update, and Delete book cards.
-- **Book Information:** Each book card includes a title, author, genre, and rating.
-- **Dashboard:** View and manage books in a grid layout.
+- **CRUD Operations:** Create, Read, Update, and Delete books.
+- **Book Information:** Each book card includes a title, author, genre, and optional rating.
+- **Dashboard:** View, search, and manage books displayed in a grid format.
 - **User Authentication:** Secure login and registration via Passport.js.
 - **Server-Side Rendering:** Pages are rendered on the server and sent to the client.
 
@@ -20,7 +20,7 @@ A full-stack application that allows users to manage a collection of books with 
 
 🔗 **Live site:** [here](add link)
 
-<img src="/public/images/Screen Shot 2024-08-21 at 8.12.21 PM.png" width="600px" alt="Screenshot">
+<img src="/public/images/Screen Shot 2024-08-21 at 9.17.58 PM.png" width="600px" alt="Screenshot">
 <img src="/public/images/Screen Shot 2024-08-21 at 8.15.53 PM.png" width="600px" alt="Screenshot">
 <img src="/public/images/Screen Shot 2024-08-21 at 8.13.28 PM.png" width="600px" alt="Screenshot">
 
