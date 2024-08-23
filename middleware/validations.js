@@ -36,7 +36,6 @@ const userForm = [
         .escape(),
 ];
 
-
 module.exports = {
     bookForm,
     userForm
