@@ -5,37 +5,26 @@
 const prisma = require("./prismaClient");
 
 // get a user by username for authentication via passport-config.js
-async function getUserByUsername(user) {
-
-    return await prisma.users.findUnique({ where: { username: user } });
-
+async function getUserByUsername(username) {
+    return await prisma.users.findUnique({ where: { username } });
 }
 
+// get user by ID
 async function getUserByID(id) {
     return await prisma.users.findUnique({ where: { id } });
 }
 
-
-
 // add a user
-async function addUser(user, hash) {
+async function addUser(username, hash) {
     try {
-        const existingUser = await prisma.users.findUnique({
-            where: { username: user }
-        });
-
+        const existingUser = await prisma.users.findUnique({ where: { username } });
         if (existingUser) {
             throw new Error('That username is already taken!');
         }
-
         await prisma.users.create({
-            data: {
-                username: user,
-                password: hash
-            }
+            data: { username, password: hash }
         });
     } catch (error) {
-        // Re-throw the error for the controller to handle
         throw error;
     }
 }
@@ -43,9 +32,7 @@ async function addUser(user, hash) {
 // Get a book by ID
 async function getBookByID(id) {
     try {
-        const book = await prisma.books.findUnique({
-            where: { id: id }
-        });
+        const book = await prisma.books.findUnique({ where: { id } });
         return book;
     } catch (error) {
         // Handle errors, e.g., log them or rethrow
@@ -56,10 +43,7 @@ async function getBookByID(id) {
 
 async function updateBook(id, updateData) {
     try {
-        await prisma.books.update({
-            where: { id: id },
-            data: updateData
-        });
+        await prisma.books.update({ where: { id }, data: updateData });
 
     } catch (error) {
         // Handle errors, e.g., log them or rethrow
@@ -70,10 +54,7 @@ async function updateBook(id, updateData) {
 
 async function deleteBookByID(id) {
     try {
-        await prisma.books.delete({
-            where: { id: id }
-        })
-
+        await prisma.books.delete({ where: { id } })
     } catch (error) {
         // Handle errors, e.g., log them or rethrow
         console.error("Error deleting book:", error);
