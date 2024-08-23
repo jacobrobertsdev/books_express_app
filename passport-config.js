@@ -9,7 +9,7 @@ function initializePassport(passport) {
         try {
             const user = await db.getUserByUsername(username)
 
-            if (user == null) {
+            if (!user) {
                 return done(null, false, { message: "No user with that username found." })
             }
             if (await bcrypt.compare(password, user.password)) {
@@ -24,9 +24,11 @@ function initializePassport(passport) {
     }
 
     passport.use(new LocalStrategy(authenticateUser));
+
     passport.serializeUser((user, done) => {
         done(null, user.id); // Serialize user ID
     });
+
     passport.deserializeUser(async (id, done) => {
         try {
             const user = await db.getUserByID(id); // Find user by ID
