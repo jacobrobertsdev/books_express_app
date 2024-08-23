@@ -4,7 +4,6 @@ const passport = require('passport');
 const controller = require('../controllers/userController');
 const auth = require('../middleware/authentication');
 
-
 // Login POST
 userRouter.post('/login', auth.checkNotAuthenticated, passport.authenticate('local', {
    failureRedirect: '/user/login',
