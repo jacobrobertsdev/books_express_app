@@ -32,7 +32,6 @@ const postNewUser = [
             await db.addUser(username, hashedPassword);
             // Redirect to the login page on success
             res.redirect('/user/login');
-
         } catch (error) {
             // Pass error to register view
             res.status(500).render('register', { errorMessage: error.message });
@@ -77,7 +76,6 @@ const postNewBook = [
     }
 ]
 
-
 // Render edit book form
 async function getEditBook(req, res) {
     try {
@@ -114,7 +112,6 @@ const postEditBook = [
         } catch (error) {
             res.status(500).send('Internal Server Error');
         }
-
     }
 ]
 
@@ -155,9 +152,7 @@ async function deleteBook(req, res) {
         res.redirect(`/user/dashboard/${userID}`);
     } catch (error) {
         res.status(500).send('Internal Server Error');
-
     }
-
 }
 
 module.exports = {
