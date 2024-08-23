@@ -70,8 +70,6 @@ main {
     color: #162106;
 }
 
-
-
 ul {
     list-style-type: none;
     display: flex;
@@ -80,7 +78,6 @@ ul {
     flex-wrap: wrap;
     margin: 1rem auto;
 }
-
 
 li {
     background-color: #ffffff;
