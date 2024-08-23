@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <section class="login">
         <h3>User login:</h3>
         <form action="/user/login" method="POST">
@@ -20,7 +19,6 @@
             <input type="password" id="password" name="password" required placeholder="Enter your password">
             <button type="submit">Login</button>
             <p>No account? <a href="/user/register">Register here.</a></p>
-
         </form>
         <% if(messages.error) { %>
             <%= messages.error %>

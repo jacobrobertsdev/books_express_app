@@ -29,7 +29,6 @@
                 <% } else {%>
                     <p> You have read <%= books.length %> books: </p>
                     <% } %>
-
                         <% if (books.length> 0) {%>
                             <section class="books">
                                 <ul>
@@ -52,17 +51,12 @@
                                                 </p>
                                                 <% } %>
 
-
-
                                                     <a href="/user/book/edit/<%= book.id %>" class="edit">Edit</a>
                                                     <form action="/user/book/delete/<%= book.id %>?_method=DELETE"
                                                         method="POST">
                                                         <button type="submit" class="delete-btn"
                                                             data-id="<%= book.id %>">Delete</button>
                                                     </form>
-
-
-
                                         </li>
                                         <% }} %>
 

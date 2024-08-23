@@ -6,17 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/global.css">
-
     <title>Register</title>
 </head>
 
 <body>
-
     <section>
         <h3>Register:</h3>
-
         <form action="/user/register" method="POST">
-
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required placeholder="Create a username" minlength="3"
                 maxlength="20">
@@ -32,7 +28,6 @@
 
                     <%- include("partials/errors.ejs") %>
         </form>
-
     </section>
 
 </body>
