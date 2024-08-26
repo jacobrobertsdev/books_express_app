@@ -18,7 +18,7 @@ A full-stack application that allows users to manage a collection of books with 
 - **PostgreSQL:** Relational database for storing book and user information.
 - **Passport.js:** Middleware for handling user authentication.
 
-🔗 **Live site:** [here](add link)
+🔗 **Live site:** (https://book-dash.adaptable.app)
 
 <img src="/public/images/Screen Shot 2024-08-21 at 9.17.58 PM.png" width="600px" alt="Screenshot">
 <img src="/public/images/Screen Shot 2024-08-21 at 8.13.28 PM.png" width="600px" alt="Screenshot">
