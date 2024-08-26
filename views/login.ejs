@@ -21,8 +21,10 @@
             <p>No account? <a href="/user/register">Register here.</a></p>
         </form>
         <% if(messages.error) { %>
-            <%= <p>messages.error</p> %>
-                <% } %>
+            <p>
+                <%= messages.error %>
+            </p>
+            <% } %>
     </section>
 
 </body>
