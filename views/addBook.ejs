@@ -10,23 +10,24 @@
 </head>
 
 <body>
-    <section>
-        <h3>Add a new book:</h3>
-        <form action="/user/book/new" method="POST">
-            <label for="title">Book title:</label>
-            <input type="text" id="title" name="title" required placeholder="Book title">
-            <label for="author">Author:</label>
-            <input type="text" id="author" name="author" required placeholder="Name of author">
-            <label for="genre">Genre:</label>
-            <input type="text" id="genre" name="genre" required placeholder="Book genre">
-            <label for="rating">Rating (1 - 10):</label>
-            <input type="number" name="rating" min="1" max="10" step="1" placeholder="Rating out of 10" />
-            <button type="submit">Add book</button>
-            <a href="javascript:history.back()">Go back</a>
-        </form>
+    <%- include("partials/header.ejs") %>
+        <section>
+            <h3>Add a new book:</h3>
+            <form action="/user/book/new" method="POST">
+                <label for="title">Book title:</label>
+                <input type="text" id="title" name="title" required placeholder="Book title">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required placeholder="Name of author">
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" name="genre" required placeholder="Book genre">
+                <label for="rating">Rating (1 - 10):</label>
+                <input type="number" name="rating" min="1" max="10" step="1" placeholder="Rating out of 10" />
+                <button type="submit">Add book</button>
+                <a href="javascript:history.back()">Go back</a>
+            </form>
 
-        <%- include("partials/errors.ejs") %>
-    </section>
+            <%- include("partials/errors.ejs") %>
+        </section>
 
 
 </body>

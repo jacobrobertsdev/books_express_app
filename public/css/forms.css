@@ -4,6 +4,17 @@ body {
     place-items: center;
 }
 
+header {
+    width: 100%;
+    background-color: #363a94;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    color: #fff;
+
+}
+
+
 h3 {
     margin-bottom: .5rem;
     text-align: center;

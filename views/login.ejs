@@ -10,22 +10,23 @@
 </head>
 
 <body>
-    <section class="login">
-        <h3>User login:</h3>
-        <form action="/user/login" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required placeholder="Enter your username">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required placeholder="Enter your password">
-            <button type="submit">Login</button>
-            <p>No account? <a href="/user/register">Register here.</a></p>
-        </form>
-        <% if(messages.error) { %>
-            <p>
-                <%= messages.error %>
-            </p>
-            <% } %>
-    </section>
+    <%- include("partials/header.ejs") %>
+        <section class="login">
+            <h3>User login:</h3>
+            <form action="/user/login" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+                <button type="submit">Login</button>
+                <p>No account? <a href="/user/register">Register here.</a></p>
+            </form>
+            <% if(messages.error) { %>
+                <p>
+                    <%= messages.error %>
+                </p>
+                <% } %>
+        </section>
 
 </body>
 
