@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  // "scripts": {
+  //   "test": "echo \"Error: no test specified\" && exit 1",
+  //   "start": "prisma db push --skip-generate && node app.js"
+  // },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "prisma db push --skip-generate && node app.js"
+    "build": "prisma generate",                     // Prisma generate command
+    "start": "node app.js",                         // Start command to run the Express app
+    "migrate": "prisma migrate deploy",             // Apply migrations to PostgreSQL (if necessary)
+    "prisma:generate": "prisma generate"            // Ensure Prisma client is generated
   },
   "keywords": [],
   "author": "",
